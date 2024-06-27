@@ -11,7 +11,7 @@ runs:
           gh api -H 'Accept: application/vnd.github+json' \
               /repos/${{ github.repository }}/actions/workflows/main.yml/runs\?exclude_pull_requests=true \
               | jq '.workflow_runs' \
-              | jq "map(select(.head_commit.id == \"${{ github.sha }}\"))[0].id" \
+              | jq "map(select(.head_commit.id != \"${{ github.sha }}\"))[0].id" \
         )
         echo COMMIT_RUN_ID=${run_id} >> "$GITHUB_ENV"
       env:
