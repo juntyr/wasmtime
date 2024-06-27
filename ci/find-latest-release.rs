@@ -21,6 +21,6 @@ fn main() {
         })
         .collect::<Vec<_>>();
     releases.sort();
-    let (major, minor, patch) = releases.last().unwrap();
+    let (major, minor, patch) = releases.last().unwrap_or((22, 0, 0));
     println!("{}.{}.{}", major, minor, patch);
 }
