@@ -940,7 +940,7 @@ jobs:
 
   verify-publish:
     needs: determine
-    if: github.repository == 'bytecodealliance/wasmtime' && needs.determine.outputs.run-full
+    if: needs.determine.outputs.run-full
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -1143,7 +1143,6 @@ jobs:
       && needs.ci-status.result == 'success'
       && github.event_name == 'push'
       && startsWith(github.ref, 'refs/heads/release-')
-      && github.repository == 'bytecodealliance/wasmtime'
     steps:
     - uses: actions/checkout@v4
       with:
