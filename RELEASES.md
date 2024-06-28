@@ -1,6 +1,6 @@
 ## 24.0.0
 
-Unreleased.
+Released 2024-06-28.
 
 ### Added
 
